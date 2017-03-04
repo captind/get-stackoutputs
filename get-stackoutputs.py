@@ -21,7 +21,7 @@ regex = r"^(?i)st.*\w(?i)" + re.escape(env) + r"\b(?!\w)"
 generationtime = time.strftime("%Y%m%d-%H%M%S")
 filename = output_path + 'test' + env + generationtime + '.csv'
 
-with open( filename , 'w') as csvfile:
+with open( filename , 'wb') as csvfile:
     fieldnames = ['stack_name', 'ouptut_name', 'output_value']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
@@ -36,7 +36,7 @@ with open( filename , 'w') as csvfile:
             print('==========')      
             for output in stack.outputs:           
                 print('%s: %s' % (output.key, output.value))             
-                writer.writerow({'stack_name': stack.stack_name, 'ouptut_name': output.key, 'output_value': output.value })
+                writer.writerow({'stack_name': 'stack.stack_name', 'ouptut_name': output.key, 'output_value': output.value })
             print('=================================================')
             print('')
     print('Outputs written to file:' + filename)
