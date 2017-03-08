@@ -35,7 +35,7 @@ with open( filename , 'wb') as csvfile:
                 print('=================================================')
                 print('Outputs:')
                 print('==========')
-                for output in stack["Outputs"]:
+                for output in stack.get("Outputs", []):
                     print('%s: %s' % (output["OutputKey"], output["OutputValue"]))
                     writer.writerow({'stack_name': 'stack.stack_name', 'ouptut_name': output["OutputKey"], 'output_value': output["OutputValue"] })
                 print('=================================================')
